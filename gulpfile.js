@@ -65,6 +65,15 @@ gulp.task("build", ['minifyScripts', 'compileSass'], function(){
 gulp.task("serve", ["watchFiles"]);
 
 
+gulp.task("serveprod", function(){
+	connect.server({
+		root: [proj path],
+		port: process.env.PORT || 3000,
+		livereload: false
+	});
+});
+
+
 gulp.task("default", ["clean"], function(){
 	gulp.start("build"); //once the clean dependency runs, the build task will run
 });
