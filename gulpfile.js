@@ -5,6 +5,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
+const maps = require('gulp-sourcemaps');
 
 gulp.task("concatScripts", function(){//define a task with the name as 1st param
 
@@ -26,11 +27,19 @@ gulp.task("minifyScripts", function(){
 });
 
 //compiling sass isn't hard, but it's time consuming to do every time you make a change. Gulp can automate this.
+//maps help define where the source of elements is in the project come from, so instead of just having 'css/application.css', it will break it down in dev tools to css/base/..., css/application.css, css/application.scss, etc."
 gulp.task('compileSass', function(){
-	gulp.src("scss/application.scss")//this file is importing other scss (sass) files, which are themselves importing the actual source scss files. This is good modular practice.
+	//this file is importing other scss (sass) files, which are themselves importing the actual source scss files. This is good modular practice.
+	gulp.src("scss/application.scss")
+		.pipe(maps.init()) //gets piped to sass method, where the sass is actually compiled
 		.pipe(sass())
+		.pipe(maps.write("./")) //relative to our output directory, which is css (given below)
 		.pipe(gulp.dest("css"));
 });
+
+
+
+
 
 //SourceMaps ->
 
