@@ -42,9 +42,12 @@ gulp.task('compileSass', function(){
 		.pipe(gulp.dest("css"));
 });
 
-gulp.task("build", ['minifyScripts', 'compileSass']); //default is to run concurrently
 
+gulp.task('watchSass', function(){
+	//doesn't need a return statement in callback because no other tasks depend on it
+	gulp.watch("scss/**/*.scss", ["compileSass"]); //both parameters can be string or array of strings
+});
 
-//smaller, module code is easier to maintain when you work on larger projects or larger teams
+gulp.task("build", ['minifyScripts', 'compileSass']); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
 
 gulp.task("default", ["build"]);
