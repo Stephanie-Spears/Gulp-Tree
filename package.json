@@ -1,8 +1,8 @@
 {
   "name": "gulp-tree",
   "version": "1.0.0",
-  "description": "Gulp Task Runner Basics",
-  "main": "gulpfile.js",
+  "description": "Gulp Task Runner Basics 2018",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Stephanie-Spears/Gulp-Tree/issues"
   },
-  "homepage": "https://github.com/Stephanie-Spears/Gulp-Tree#readme"
+  "homepage": "https://github.com/hdngr/treehouse-gulp-course",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0"
+  }
 }
