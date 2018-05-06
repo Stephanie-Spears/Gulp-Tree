@@ -56,7 +56,7 @@ gulp.task("clean", function(){
 
 
 gulp.task("build", ['minifyScripts', 'compileSass'], function(){
-	return gulp.src(["css/application.css", "js/app.min.js", "index.html", "img/**", "fonts/**"], { base: "./"}) //base parameter tells gulp to keep the directory structure of everything that's provided in the source, which will be relative to the base path
+	return gulp.src(["css/application.css", "js/app.min.js", "index.html", "img/**", "fonts/**"], { base: "./"}) //The gulp.source method has a base option, that allows you to preserve the directory structure of the files you are introducing to the stream, relative to destination given below
 		.pipe(gulp.dest('dist'));
 }); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
 
