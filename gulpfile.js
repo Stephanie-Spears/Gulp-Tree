@@ -44,9 +44,10 @@ gulp.task('compileSass', function(){
 });
 
 
-gulp.task('watchSass', function(){
+gulp.task('watchFiles', function(){
 	//doesn't need a return statement in callback because no other tasks depend on it
-	gulp.watch("scss/**/*.scss", ["compileSass"]); //both parameters can be string or array of strings
+	gulp.watch("scss/**/*.scss", ["compileSass"]) //both parameters can be string or array of strings
+	gulp.watch("js/main.js", ["concatScripts"]);
 });
 
 
@@ -60,6 +61,8 @@ gulp.task("build", ['minifyScripts', 'compileSass'], function(){
 		.pipe(gulp.dest('dist'));
 }); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
 
+
+gulp.task("serve", ["watchFiles"]);
 
 
 gulp.task("default", ["clean"], function(){
