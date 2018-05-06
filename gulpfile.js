@@ -4,9 +4,10 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 
-//define a task with the name as 1st param
-gulp.task("concatScripts", function(){
+gulp.task("concatScripts", function(){//define a task with the name as 1st param
+
 	gulp.src([  //can take array or string of file names
 		"js/jquery.js",
 		"js/sticky/jquery.sticky.js", //depends on jquery
@@ -24,9 +25,17 @@ gulp.task("minifyScripts", function(){
 		.pipe(gulp.dest("js")); //gulp won't overwrite files when the file stream is output using gulp.dest
 });
 
+//compiling sass isn't hard, but it's time consuming to do every time you make a change. Gulp can automate this.
+gulp.task('compileSass', function(){
+	gulp.src("scss/application.scss")//this file is importing other scss (sass) files, which are themselves importing the actual source scss files. This is good modular practice.
+		.pipe(sass())
+		.pipe(gulp.dest("css"));
+});
+
+//SourceMaps ->
 
 
-//
+//smaller, module code is easier to maintain when you work on larger projects or larger teams
 //
 // gulp.task("default", ["hello"], function(){ //hello task is a dependency, so it will run before the default task, which is the body
 // 	console.log("Hello, Gulp! This is the Default Task!");
