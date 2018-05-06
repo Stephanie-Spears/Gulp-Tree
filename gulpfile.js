@@ -47,6 +47,4 @@ gulp.task("build", ['minifyScripts', 'compileSass']); //default is to run concur
 
 //smaller, module code is easier to maintain when you work on larger projects or larger teams
 
-gulp.task("default", ["hello"], function(){ //hello task is a dependency, so it will run before the default task, which is the body
-	console.log("Hello, Gulp! This is the Default Task!");
-});
+gulp.task("default", ["build"]);
