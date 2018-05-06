@@ -67,7 +67,7 @@ gulp.task("serve", ["watchFiles"]);
 
 gulp.task("serveprod", function(){
 	connect.server({
-		root: [proj path],
+		root: [dist],
 		port: process.env.PORT || 3000,
 		livereload: false
 	});
