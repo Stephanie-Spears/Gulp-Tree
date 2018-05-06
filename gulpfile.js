@@ -76,7 +76,7 @@ gulp.task('assets', function(){
 		options.src + 'img/**/*',
 		options.src + 'fonts/**/*',
 		options.src + 'js/app*.js*',
-		options.src + 'css/**/*'], {base: "./"})
+		options.src + 'css/**/*'], {base: "./src/"})
 		.pipe(gulp.dest(options.dist));
 });
 
