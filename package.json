@@ -16,6 +16,15 @@
     "url": "https://github.com/Stephanie-Spears/Gulp-Tree/issues"
   },
   "homepage": "https://github.com/hdngr/treehouse-gulp-course",
+  "dependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0"
+  },
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
