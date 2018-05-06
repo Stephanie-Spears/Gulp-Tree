@@ -1,3 +1,2 @@
-#Heroku
+#GitHub Pages
 
-https://gulp-task-runner.herokuapp.com/

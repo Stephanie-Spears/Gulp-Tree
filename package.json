@@ -4,9 +4,7 @@
   "description": "Gulp Task Runner Basics 2018",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "postinstall": "gulp default"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,22 +16,17 @@
     "url": "https://github.com/Stephanie-Spears/Gulp-Tree/issues"
   },
   "homepage": "https://github.com/hdngr/treehouse-gulp-course",
-  "dependencies": {
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0"
-  },
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-csso": "^1.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-if": "^1.2.5",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^1.2.0"
   }
 }
