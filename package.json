@@ -27,6 +27,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
-    "gulp-useref": "^1.2.0"
+    "gulp-useref": "^1.2.0",
+    "hoek": "^5.0.3"
   }
 }
