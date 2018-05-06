@@ -1,5 +1,5 @@
 'use strict'; //strict javascript rules, stronger security
-
+//TODO: update gulp tasks to accurately configure files
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
