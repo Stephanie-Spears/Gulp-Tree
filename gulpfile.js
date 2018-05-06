@@ -37,7 +37,7 @@ gulp.task("minifyScripts", ["concatScripts"], function(){ //adding concatScripts
 	return gulp.src(options.src + "js/app.js")
 		.pipe(uglify())
 		.pipe(rename("app.min.js")) //use gulp-rename to not overwrite app.js
-		.pipe(gulp.dest(options.src + "js")); //gulp won't overwrite files when the file stream is output using gulp.dest
+		.pipe(gulp.dest("js")); //gulp won't overwrite files when the file stream is output using gulp.dest
 });
 
 //compiling sass isn't hard, but it's time consuming to do every time you make a change. Gulp can automate this.
