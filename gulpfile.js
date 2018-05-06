@@ -6,6 +6,7 @@ const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const maps = require('gulp-sourcemaps');
+const del = require('del');
 
 
 //define a task with the name as 1st param
@@ -48,12 +49,22 @@ gulp.task('watchSass', function(){
 	gulp.watch("scss/**/*.scss", ["compileSass"]); //both parameters can be string or array of strings
 });
 
+
+gulp.task("clean", function(){
+	del(["dist", "css/application.css*", "js/app*.js*"]); //"globbing patterns"-> regex
+});
+
+
 gulp.task("build", ['minifyScripts', 'compileSass'], function(){
 	return gulp.src(["css/application.css", "js/app.min.js", "index.html", "img/**", "fonts/**"], { base: "./"}) //base parameter tells gulp to keep the directory structure of everything that's provided in the source, which will be relative to the base path
 		.pipe(gulp.dest('dist'));
 }); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
 
-gulp.task("default", ["build"]);
+
+
+gulp.task("default", ["clean"], function(){
+	gulp.start("build"); //once the clean dependency runs, the build task will run
+});
 
 
 //development tasks are iterative -> fine tuning the application, (recompiling only the parts that have changed and restarting the app)
