@@ -21,7 +21,7 @@ gulp.task("minifyScripts", function(){
 	gulp.src("js/app.js")
 		.pipe(uglify())
 		.pipe(rename("app.min.js")) //use gulp-rename to not overwrite app.js
-		.pipe(gulp.dest("js"));
+		.pipe(gulp.dest("js")); //gulp won't overwrite files when the file stream is output using gulp.dest
 });
 
 
