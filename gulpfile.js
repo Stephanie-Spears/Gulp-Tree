@@ -2,6 +2,8 @@
 
 const gulp = require('gulp');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
 
 //define a task with the name as 1st param
 gulp.task("concatScripts", function(){
@@ -13,8 +15,19 @@ gulp.task("concatScripts", function(){
 		.pipe(gulp.dest("js")); //gulp.dest method takes the readable string of data and persists it to disk
 });
 
-gulp.task("default", ["hello"], function(){ //hello task is a dependency, so it will run before the default task, which is the body
-	console.log("This is the default task!");
-});
 
 //minification speeds up load times, and it can sometimes rename variables for optimization
+gulp.task("minifyScripts", function(){
+	gulp.src("js/app.js")
+		.pipe(uglify())
+		.pipe(rename("app.min.js")) //use gulp-rename to not overwrite app.js
+		.pipe(gulp.dest("js"));
+});
+
+
+
+//
+//
+// gulp.task("default", ["hello"], function(){ //hello task is a dependency, so it will run before the default task, which is the body
+// 	console.log("Hello, Gulp! This is the Default Task!");
+// });
