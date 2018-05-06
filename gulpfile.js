@@ -48,6 +48,13 @@ gulp.task('watchSass', function(){
 	gulp.watch("scss/**/*.scss", ["compileSass"]); //both parameters can be string or array of strings
 });
 
-gulp.task("build", ['minifyScripts', 'compileSass']); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
+gulp.task("build", ['minifyScripts', 'compileSass'], function(){
+	return gulp.src(["css/application.css", "js/app.min.js", "index.html", "img/**", "fonts/**"], { base: "./"}) //base parameter tells gulp to keep the directory structure of everything that's provided in the source, which will be relative to the base path
+		.pipe(gulp.dest('dist'));
+}); //default is to run concurrently, must specify in the tasks themselves what dependencies they have
 
 gulp.task("default", ["build"]);
+
+
+//development tasks are iterative -> fine tuning the application, (recompiling only the parts that have changed and restarting the app)
+//production tasks are for compiling and optimizing->build and deployment (minification and file concatenation)
